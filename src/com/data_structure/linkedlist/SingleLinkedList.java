@@ -6,9 +6,9 @@ package com.data_structure.linkedlist;
 public class SingleLinkedList {
 
     //初始化头结点，不存放具体数据，用于管理此链表
-    private HeroNode head = new HeroNode(0, "", "");
+    private SingleNode head = new SingleNode(0, "", "");
 
-    public HeroNode getHead() {
+    public SingleNode getHead() {
         return head;
     }
 
@@ -19,18 +19,18 @@ public class SingleLinkedList {
      * 1、找到当前链表的最后节点
      * 2、将最后这个节点的Next指向新的节点
      *
-     * @param heroNode
+     * @param singleNode
      */
-    public void add(HeroNode heroNode) {
+    public void add(SingleNode singleNode) {
 
         //因为head节点永远指向第一个,所以需要一个辅助指针来进行遍历
-        HeroNode temp = head;
+        SingleNode temp = head;
         //遍历链表,直到找到最后一个
         while (temp.next != null) {
             //如果不是最后,则temp后移
             temp = temp.next;
         }
-        temp.next = heroNode;
+        temp.next = singleNode;
     }
 
     /**
@@ -40,27 +40,27 @@ public class SingleLinkedList {
      * 3、将辅助节点的next域指向新加入节点
      * 因为头结点不能动，因此我们仍然通过一个辅助指针(变量)来帮助找到添加的位置
      * 由于是单链表，而我们找的temp是位于添加位置的前一个节点，否则插入不了
-     * @param heroNode
+     * @param singleNode
      */
-    public void addByOrder(HeroNode heroNode) {
+    public void addByOrder(SingleNode singleNode) {
 
-        HeroNode temp = head;
+        SingleNode temp = head;
         plan1:{
             while (true) {
                 //如果循环到了最后一个，则证明新加入的节点比所有节点都要大
                 if (temp.next == null) {
-                    temp.next = heroNode;
+                    temp.next = singleNode;
                     break;
                 }
                 //如果节点值相同，则冲突，给出提示
-                if (heroNode.no == temp.no) {
-                    System.out.println("此位置有人了！" + heroNode.no);
+                if (singleNode.no == temp.no) {
+                    System.out.println("此位置有人了！" + singleNode.no);
                     break;
                 }
                 //如果节点值刚好比这一个小，比前一个大，则就是当前位置，直接插入
-                if (heroNode.no > temp.no && heroNode.no < temp.next.no) {
-                    heroNode.next = temp.next;
-                    temp.next = heroNode;
+                if (singleNode.no > temp.no && singleNode.no < temp.next.no) {
+                    singleNode.next = temp.next;
+                    temp.next = singleNode;
                     break;
                 }
                 //temp指向下一个节点
@@ -102,9 +102,9 @@ public class SingleLinkedList {
      * 根据新节点的no来进行重新赋值
      * @param newNode
      */
-    public void update(HeroNode newNode){
+    public void update(SingleNode newNode){
 
-        HeroNode temp = head;
+        SingleNode temp = head;
 
         while (temp!=null){
             if (temp.no == newNode.no){
@@ -130,11 +130,12 @@ public class SingleLinkedList {
      */
     public void delete(Integer no){
 
-        HeroNode temp = head;
+        SingleNode temp = head;
 
         while (temp.next != null){
             if (temp.next.no == no){
                 temp.next = temp.next.next;
+                break;
             }
             if (temp.next == null){
                 System.out.println("未查到此节点");
@@ -155,7 +156,7 @@ public class SingleLinkedList {
             return;
         }
         //因为头结点不能动，因此需要一个辅助遍历来遍历
-        HeroNode temp = head.next;
+        SingleNode temp = head.next;
         while (temp != null) {
             //输出节点信息
             System.out.println(temp.toString());
@@ -168,14 +169,14 @@ public class SingleLinkedList {
      * @param head
      * @return
      */
-    public HeroNode reverLinkedList(HeroNode head){
+    public SingleNode reverLinkedList(SingleNode head){
         if (head == null || head.next == null){
             return null;
         }
         //新建临时存储翻链表
-        HeroNode reverNode = new HeroNode(0,null,null);
-        HeroNode temp = head.next;
-        HeroNode cur = new HeroNode(111,"111","111");
+        SingleNode reverNode = new SingleNode(0,null,null);
+        SingleNode temp = head.next;
+        SingleNode cur = new SingleNode(111,"111","111");
 
 
         while (temp!=null){

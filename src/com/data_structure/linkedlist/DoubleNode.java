@@ -1,14 +1,15 @@
 package com.data_structure.linkedlist;
 
 /**
- * 定义一个HeroNode,每个HeroNode对象就是一个节点
+ * 定义一个DoubleNode,每个DoubleNode对象就是一个节点
  */
-public class HeroNode {
+public class DoubleNode {
 
     public int no;
     public String name;
     public String nickName;
-    public HeroNode next;
+    public DoubleNode next;
+    public DoubleNode pre;
 
     /**
      * 构造器
@@ -16,7 +17,7 @@ public class HeroNode {
      * @param name
      * @param nickName
      */
-    public HeroNode(int no, String name, String nickName) {
+    public DoubleNode(int no, String name, String nickName) {
         this.no = no;
         this.name = name;
         this.nickName = nickName;

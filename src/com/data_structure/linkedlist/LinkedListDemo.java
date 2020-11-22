@@ -11,17 +11,22 @@ public class LinkedListDemo {
 
 
     public static void main(String[] args) {
-        singleLinkedList();
+
+//        //SingleLinkedList CRUD
+//        singleLinkedList();
+//        //ReverSingleLinkedList
+//        reverSingleLinkedList();
+        doubleLinkedList();
     }
 
     static void singleLinkedList(){
         //创建节点
-        HeroNode hero1 = new HeroNode(1,"安妮","黑暗之女");
-        HeroNode hero2 = new HeroNode(2,"奥拉夫","狂战士");
-        HeroNode hero3 = new HeroNode(3,"加里奥","正义巨像");
-        HeroNode hero4 = new HeroNode(4,"崔斯特","卡牌大师");
-        HeroNode hero5 = new HeroNode(5,"赵信","德邦总管");
-        HeroNode hero6 = new HeroNode(2,"易","无极剑圣");
+        SingleNode hero1 = new SingleNode(1,"安妮","黑暗之女");
+        SingleNode hero2 = new SingleNode(2,"奥拉夫","狂战士");
+        SingleNode hero3 = new SingleNode(3,"加里奥","正义巨像");
+        SingleNode hero4 = new SingleNode(4,"崔斯特","卡牌大师");
+        SingleNode hero5 = new SingleNode(5,"赵信","德邦总管");
+        SingleNode hero6 = new SingleNode(2,"易","无极剑圣");
 
         SingleLinkedList singleLinkedList = new SingleLinkedList();
 //        singleLinkedList.add(hero1);
@@ -44,4 +49,57 @@ public class LinkedListDemo {
         singleLinkedList.delete(4);
         singleLinkedList.list();
     }
+
+    static void reverSingleLinkedList(){
+        SingleLinkedList linkedList = new SingleLinkedList();
+
+        linkedList.add(new SingleNode(1,"1","1"));
+        linkedList.add(new SingleNode(2,"2","2"));
+        linkedList.add(new SingleNode(3,"3","3"));
+
+        linkedList.list();
+        System.out.println("---");
+        SingleNode head = linkedList.getHead();
+        SingleNode node = linkedList.reverLinkedList(head);
+
+        SingleNode temp = node.next;
+        while (temp!=null){
+            System.out.println(temp.toString());
+
+            temp = temp.next;
+        }
+    }
+
+    static void doubleLinkedList(){
+
+        DoubleLinkedList linkedList = new DoubleLinkedList();
+        DoubleNode node1 = new DoubleNode(1,"1","1");
+        DoubleNode node2 = new DoubleNode(2,"2","2");
+        DoubleNode node3 = new DoubleNode(3,"3","3");
+        DoubleNode node4 = new DoubleNode(4,"4","4");
+        DoubleNode node5 = new DoubleNode(5,"5","5");
+        DoubleNode node6 = new DoubleNode(2,"5","5");
+
+//        linkedList.add(node1);
+//        linkedList.add(node2);
+//        linkedList.add(node3);
+//        linkedList.add(node4);
+//        linkedList.add(node5);
+
+        linkedList.addByOrder(node5);
+        linkedList.addByOrder(node4);
+        linkedList.addByOrder(node2);
+        linkedList.addByOrder(node1);
+        linkedList.addByOrder(node3);
+
+        linkedList.list(linkedList.getHead());
+
+//        linkedList.delete(5);
+//        linkedList.update(node6);
+
+        System.out.println("----");
+        linkedList.list(linkedList.getHead());
+    }
+
+
 }
