@@ -2,22 +2,22 @@ package com.common;
 
 public class Node {
 
-    private Integer val;
+    private Integer no;
     private Node next;
 
     public Node() {
     }
 
-    public Node(Integer val) {
-        this.val = val;
+    public Node(int no){
+        this.no = no;
     }
 
-    public Integer getVal() {
-        return val;
+    public Integer getNo() {
+        return no;
     }
 
-    public void setVal(Integer val) {
-        this.val = val;
+    public void setNo(Integer no) {
+        this.no = no;
     }
 
     public Node getNext() {
