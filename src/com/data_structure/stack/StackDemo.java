@@ -1,5 +1,7 @@
 package com.data_structure.stack;
 
+import java.util.LinkedList;
+
 /**
  *
  * 定义：
@@ -22,7 +24,8 @@ package com.data_structure.stack;
 public class StackDemo {
 
     public static void main(String[] args) {
-        ArrayStack stack = new ArrayStack(10);
+//        ArrayStack stack = new ArrayStack(10);
+        LinkedListStack stack = new LinkedListStack();
 
         stack.push(0);
         stack.push(1);
