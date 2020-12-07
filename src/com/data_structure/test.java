@@ -3,11 +3,17 @@ package com.data_structure;
 public class test {
 
     public static void main(String[] args) {
-        Testbbb<Object> integerTestbbb = new Testbbb<>(123);
 
-        Testaaa a = new Testaaa(integerTestbbb);
+        int x;
+        for (x = 5; x > 0; x--) {
 
-        System.out.println(a.getClass().toString());
+            if(x--<5){
+                System.out.printf("%d",x);
+            }else {
+                System.out.printf("%d",x++);
+            }
+
+        }
     }
 }
 
