@@ -9,7 +9,7 @@ public class InsertSort {
 
     public static void main(String[] args) {
         int[] arr = {5,4,1,2,3};
-        Util.printArray(insertSort(arr));
+        Util.printArray(insertSortTest(arr));
     }
 
     /**
@@ -38,6 +38,11 @@ public class InsertSort {
     }
 
 
+    /**
+     * 每一次都进行了交换，效率低
+     * @param arr
+     * @return
+     */
     private static int[] myInsertSort(int[] arr) {
 
         //从第二个开始，循环每一个数，使之向前比较
@@ -54,9 +59,30 @@ public class InsertSort {
                 curIndex--;
                 preIndex--;
             }
-
-
         }
+
+        return arr;
+    }
+
+    private static int[] insertSortTest(int[] arr){
+        int val=0;
+        int valPreIndex=0;
+        for (int i = 1; i < arr.length; i++) {
+            //要排序的值
+            val = arr[i];
+            //要排序的前一个索引
+            valPreIndex = i-1;
+
+            //valPreIndex>=0 防止越界
+            //val<arr[valPreIndex] 如果当前值，小于前一个值，则进行前值后移操作
+            while (valPreIndex>=0 && val<arr[valPreIndex]){
+                arr[valPreIndex+1] = arr[valPreIndex];
+                valPreIndex--;
+            }
+            //退出循环时，则证明当前值比前一个值大，这时进行插入即可
+            arr[valPreIndex+1] = val;
+        }
+
 
 
         return arr;
