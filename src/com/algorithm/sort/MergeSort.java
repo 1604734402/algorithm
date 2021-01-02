@@ -8,6 +8,7 @@ import com.common.Util;
  * 递归拆分子序列
  * 分治(分而治之)：
  * 分治法将问题分成一些小的问题然后递归求解，而治的阶段则将分的阶段得到的答案“修补”在一起
+ * 边分边合
  */
 public class MergeSort {
     static int curCount = 0;
@@ -22,7 +23,7 @@ public class MergeSort {
     }
 
     public static void mergeSort(int[] arr,int left,int right,int[] temp){
-        System.out.println("curCount1:"+curCount1++);
+//        System.out.println("curCount1:"+curCount1++);
         if (left<right){
             int mid = (left+right)/2;//中间索引
             //左递归进行分解
@@ -45,7 +46,7 @@ public class MergeSort {
      * @param temp  中转数组
      */
     public static void merge(int[] arr, int left, int mid, int right, int[] temp) {
-        System.out.println("curCont:"+curCount++);
+        System.out.printf("左下标:%d,中间开始下标:%d,右下标:%d\n",left,mid,right);
 
         int i = left;//初始化i ,左边有序序列的初始索引
         int j = mid + 1;//初始化j,右边有序序列的初始索引
