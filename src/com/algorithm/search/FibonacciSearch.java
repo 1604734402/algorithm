@@ -9,7 +9,7 @@ public class FibonacciSearch {
 
     public static void main(String[] args) {
         int[] arr = {1, 8, 110, 89, 1000, 1234};
-        System.out.println(fibSearch(arr,1000));
+        System.out.println(fibSearch(arr, 1000));
     }
 
     /**
@@ -55,7 +55,6 @@ public class FibonacciSearch {
         for (int i = high + 1; i < temp.length; i++) {
             temp[i] = a[high];
         }
-
 
 
         //使用while来循环处理找到key
