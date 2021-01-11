@@ -34,7 +34,8 @@ public class BinarySearch {
      * @param right
      * @return
      */
-    public static int binarySearch(int[] arr, int val, int left, int right) {
+    public static int binarySearch(int[] arr, int val, int left, int right)
+    {
         int mid = (left + right) / 2;
         if (left <= right) {
 
