@@ -1,15 +1,31 @@
 package com.algorithm.search;
 
-import javax.swing.text.AsyncBoxView;
+
 import java.util.Arrays;
 
+/**
+ * @auther liuyiming
+ * @date 2021/1/11
+ * <p>
+ * 与前两种类似，只不过不是通过中间值而是黄金分割点附近mid = low+F(k-1)-1
+ * 1、由斐波那契数列F[K]=F[K-1]+F[K-2]的性质，可得到(F[K]-1)=(F[K-1]-1)+(F[K-2]-1)+1
+ * 该式说明，只要顺序表的长度为F[K]-1,则可以将该表分成长度为F[K-1]-1和F[K-2]-1的两段
+ * 2、类似的，每一子段也可以用相同的方式分割
+ * 3、顺序表长度n不一定刚好等于f[K]-1,所有需要将原来的循序表长度n增加值F[K]-1。
+ * 这里的K值只要能使得F[K]-1恰好大于或等于n即可
+ * 序表长度增加后,新增的位置(从n+1到F[K]-1位置),都赋为n位置的值即可
+ * <p>
+ * while(n>fib(k)-1) k++;
+ */
 public class FibonacciSearch {
+
 
     public static int maxSize = 20;
 
     public static void main(String[] args) {
         int[] arr = {1, 8, 110, 89, 1000, 1234};
-        System.out.println(fibSearch(arr, 1000));
+//        System.out.println(fibSearch(arr, 1000));
+        System.out.println(testFib(arr, 1000));
     }
 
     /**
@@ -87,5 +103,53 @@ public class FibonacciSearch {
         return -1;
 
     }
+
+
+    /**
+     * 递归法
+     *
+     * @param a
+     * @param key
+     * @return
+     */
+    public static int testFib(int[] a, int key) {
+        int k = 0;
+        int[] f = fib();
+        int low = 0;
+        int high = a.length - 1;
+        while (high > f[k] - 1) {
+            k++;
+        }
+        int[] temp = Arrays.copyOf(a, f[k] - 1);
+
+        for (int i = high + 1; i < temp.length; i++) {
+            temp[i] = a[high];
+        }
+
+        return testFib(temp, low, high, f, k, key);
+    }
+
+    public static int testFib(int[] arr, int low, int high, int[] f, int k, int findVal) {
+
+        int mid = low + f[k - 1] - 1;
+
+        if (low < high) {
+            if (findVal == arr[mid]) {
+                if (mid <= high) {
+                    return mid;
+                } else {
+                    return high;
+                }
+            } else if (findVal < arr[mid]) {
+                return testFib(arr, low, mid - 1, f, --k, findVal);
+            } else {
+                k = k - 2;
+                return testFib(arr, mid + 1, high, f, k, findVal);
+            }
+        }
+
+        return -1;
+    }
+
 
 }
