@@ -49,9 +49,8 @@ public class EmpLinkedList {
         while (temp != null) {
 
             if (emp.getId() > temp.getId()) {
-
                 if (temp.getNext() != null) {
-                    if (temp.getNext().getId() > emp.getId()){
+                    if (temp.getNext().getId() > emp.getId()) {
                         Emp cur = temp.getNext();
                         temp.setNext(emp);
                         temp.getNext().setNext(cur);
