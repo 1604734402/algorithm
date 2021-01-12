@@ -60,4 +60,16 @@ public class BinaryTree {
             System.out.println("二叉树为空");
         }
     }
+
+    public TreeNode preSearch(int id){
+        return root.preSearch(id);
+    }
+
+    public TreeNode infixSearch(int no){
+        return root.infixSearch(no);
+    }
+
+    public TreeNode postSearch(int no){
+        return root.postSearch(no);
+    }
 }
