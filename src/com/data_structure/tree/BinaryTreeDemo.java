@@ -34,6 +34,11 @@ public class BinaryTreeDemo {
         System.out.println(binaryTree.preSearch(1).toString());
         System.out.println("---------------------------------");
         System.out.println(binaryTree.infixSearch(1).toString());
+        System.out.println(binaryTree.infixSearch(2).toString());
+        System.out.println(binaryTree.infixSearch(3).toString());
+        System.out.println(binaryTree.infixSearch(4).toString());
+
+        System.out.println(binaryTree.infixSearch(5).toString());
         System.out.println("---------------------------------");
         System.out.println(binaryTree.postSearch(1).toString());
 
