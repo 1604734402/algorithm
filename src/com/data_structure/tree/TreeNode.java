@@ -15,6 +15,11 @@ public class TreeNode {
     private TreeNode left;
     private TreeNode right;
 
+    //如果leftType == 0 表示指向的是左子树，如果是1则指向前驱节点
+    private int leftType;
+    //如果rightType == 0 表示指向的是右子数，如果1表示指向后继结点
+    private int rightType;
+
     public TreeNode(int id, String name) {
         this.id = id;
         this.name = name;
@@ -50,6 +55,22 @@ public class TreeNode {
 
     public void setRight(TreeNode right) {
         this.right = right;
+    }
+
+    public int getLeftType() {
+        return leftType;
+    }
+
+    public void setLeftType(int leftType) {
+        this.leftType = leftType;
+    }
+
+    public int getRightType() {
+        return rightType;
+    }
+
+    public void setRightType(int rightType) {
+        this.rightType = rightType;
     }
 
     @Override
@@ -156,6 +177,7 @@ public class TreeNode {
 
     /**
      * 后续查找
+     *
      * @param no
      * @return
      */
@@ -179,6 +201,68 @@ public class TreeNode {
 
         return null;
     }
+
+    /**
+     * 删除
+     * 先左再右
+     * @return
+     */
+    public boolean preDelChildRoot(int no) {
+
+        if (this.left != null) {
+            if (this.left.getId() == no) {
+                this.left = null;
+                return true;
+            } else {
+                if (this.left.preDelChildRoot(no)) {
+                    return true;
+                }
+            }
+
+        }
+
+        if (this.right!=null){
+            if (this.right.getId() == no){
+                this.right = null;
+                return true;
+            }else {
+                if (this.right.preDelChildRoot(no)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public boolean postDelChildRoot(int no){
+
+        if (this.right!=null){
+            if (this.right.getId() == no){
+                this.right = null;
+                return true;
+            }else {
+                if (this.right.postDelChildRoot(no)){
+                    return true;
+                }
+            }
+        }
+
+        if (this.left!=null){
+            if (this.left.getId() == no){
+                this.left =null;
+                return true;
+            }else {
+                if (this.left.postDelChildRoot(no)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
+    }
+
 
 
 }

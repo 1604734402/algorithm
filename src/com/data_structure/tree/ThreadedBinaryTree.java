@@ -5,24 +5,23 @@ import java.util.ArrayList;
 /**
  * @auther liuyiming
  * @date 2021/1/12
- * Why
- * 1、数组
- *  优点：通过下标方式访问元素，速度快。对于有序数组，还可使用二分查找提高检索速度
- *  缺点：如果要检索具体某个值，或者插入值(按一定顺序)会整体移动，效率较低
- * 2、链表
- *  优点：在一定程度上对数组存储方式有优化，插入，删除
- *  缺点：再进行检索时，效率较低，需要从头开始遍历
- * 3、树
- * 能提高数据存储，读取的效率
- * 利用二叉排序树，既可以保证数据的检索速度，同时也可以保证数据插入，删除，修改速度
+ * 1、n个节点的二叉链表中含有N+1 公司 2n-(n-1) = n+1 个空指针域，
+ *  利用二叉链表中的空指针域，存放指向该节点在某种遍历次序下的前驱和后继节点的指针(这种附加的指针成为“线索”)
+ * 2、这种加上了线索的二叉链表被成为线索链表，相应的二叉树成为线索二叉树(Threaded BinaryTree).
+ *  根据线索性质的不同，线索二叉树可分为前序线索二叉树、中序线索二叉树和后序线索二叉树三种
+ * 3、一个节点的前一个节点，成为前驱节点
+ * 4、一个节点的后一个节点，成为后继节点
  *
- *
- *
- *
+ * 当线索二叉树后，Node节点的属性Left和right
+ * 1、left指向的是左子树，也可能指向的前驱节点
+ * 2、right指向的是右子数，也可能指向后继节点
  */
-public class BinaryTree {
+public class ThreadedBinaryTree {
 
     private TreeNode root;
+
+    //在线索化二叉树时候，指向前驱节点
+    private TreeNode pre;
 
     public void setRoot(TreeNode root) {
         this.root = root;
@@ -120,6 +119,24 @@ public class BinaryTree {
         }
 
         return root.postDelChildRoot(no);
+    }
+
+    /**
+     * 线索化二叉树
+     * @param node
+     */
+    public void threadedNodes(TreeNode node){
+
+        if (node == null){
+            return;
+        }
+
+        threadedNodes(node.getLeft());
+
+        threadedNodes(node.getRight());
+
+
+
     }
 
 
