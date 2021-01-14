@@ -1,9 +1,5 @@
 package com.data_structure.tree;
 
-import sun.reflect.generics.tree.Tree;
-
-import java.util.ArrayList;
-
 /**
  * @auther liuyiming
  * @date 2021/1/12
@@ -185,12 +181,12 @@ public class ThreadedBinaryTree {
             return;
         }
 
-        if(node.getLeft()==null){
+        if (node.getLeft() == null) {
             node.setLeftType(1);
             node.setLeft(pre);
         }
 
-        if (pre != null && pre.getRight() == null &&pre.getLeft()!=node) {
+        if (pre != null && pre.getRight() == null && pre.getLeft() != node) {
             pre.setRight(node);
             pre.setRightType(1);
         }
@@ -287,7 +283,10 @@ public class ThreadedBinaryTree {
 
     }
 
-    public void postThreadedList(){
+    /**
+     * 后续递归遍历线索化二叉树
+     */
+    public void postThreadedList() {
         postThreadedList(root);
     }
 
@@ -296,10 +295,10 @@ public class ThreadedBinaryTree {
      */
     public void postThreadedList(TreeNode node) {
 
-        if (node.getLeftType()==0){
+        if (node.getLeftType() == 0) {
             postThreadedList(node.getLeft());
         }
-        if (node.getRightType()==0){
+        if (node.getRightType() == 0) {
             postThreadedList(node.getRight());
         }
         System.out.println(node);

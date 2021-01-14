@@ -37,11 +37,11 @@ public class QuickSort {
         while (l < r) {
             //在Pivot的左边一直找，找到一个大于等于pivot的值，退出
             while (arr[l] < privot) {
-                l += 1;
+                l++;
             }
             //在pivot的右边一直找，找到一个小于等于pivot的值，退出
             while (arr[r] > privot) {
-                r -= 1;
+                r--;
             }
             //如果l >=r 说明pivot的左右两值，左边都小于pivot值，右边都大于pivot值
             if (l >= r) {
@@ -156,23 +156,18 @@ public class QuickSort {
 
         while (l < r) {
 
-
             while (l < r && arr[l] <= pivot) {
                 l++;
             }
             if (r > l) {
                 arr[r] = arr[l];
             }
-
             while (l < r && arr[r] >= pivot) {
                 r--;
             }
-
             if (r > l) {
                 arr[l] = arr[r];
             }
-
-
         }
 
         arr[r] = pivot;
@@ -184,12 +179,11 @@ public class QuickSort {
             quickSortLast(arr, left, r - 1);
         }
 
-
     }
 
     public static void testqquickSort(int[] arr, int left, int right) {
 
-        if (left >=right){
+        if (left >= right) {
             return;
         }
         int l = left;
@@ -197,23 +191,18 @@ public class QuickSort {
         int pivot = arr[l];
 
         while (l < r) {
-
             while (l < r && arr[r] >= pivot) {
                 r--;
             }
-
             if (l < r) {
                 arr[l] = arr[r];
             }
-
             while (l < r && arr[l] <= pivot) {
                 l++;
             }
-
             if (l < r) {
                 arr[r] = arr[l];
             }
-
         }
 
 
