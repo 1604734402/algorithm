@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * @auther liuyiming
  * @date 2021/1/12
+ * 二叉树
  * Why
  * 1、数组
  *  优点：通过下标方式访问元素，速度快。对于有序数组，还可使用二分查找提高检索速度

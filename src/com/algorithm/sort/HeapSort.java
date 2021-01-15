@@ -122,6 +122,7 @@ public class HeapSort {
 
     /**
      * 迭代建堆
+     * 小顶堆
      * @param arr
      * @param i
      * @param length
@@ -151,6 +152,7 @@ public class HeapSort {
 
     /**
      * 递归建堆
+     * 小顶堆
      * @param arr
      * @param i
      * @param length

@@ -3,6 +3,7 @@ package com.data_structure.tree;
 /**
  * @auther liuyiming
  * @date 2021/1/13
+ * 顺序存储二叉树
  */
 public class ArrBinaryTreeDemo {
 

@@ -3,26 +3,43 @@ package com.data_structure.tree;
 /**
  * @auther liuyiming
  * @date 2021/1/12
+ * 树节点
  * <p>
  * 前序遍历：先输出父节点，再遍历左子树和右子树
  * 中序遍历：先遍历左子树，在输出父节点，再遍历右子树
  * 后序遍历：先遍历左子树，再遍历右子树，最后输出父节点
  */
-public class TreeNode {
+public class TreeNode implements Comparable<TreeNode>{
 
     private int id;
     private String name;
     private TreeNode left;
     private TreeNode right;
+    private int val; //哈夫曼树权值
+    private boolean flag;//判断通过那个构造方法实现，从而toString()返回不同
 
     //如果leftType == 0 表示指向的是左子树，如果是1则指向前驱节点
     private int leftType;
     //如果rightType == 0 表示指向的是右子数，如果1表示指向后继结点
     private int rightType;
 
+    public TreeNode(int val) {
+        this.val = val;
+        this.flag = true;
+    }
+
     public TreeNode(int id, String name) {
         this.id = id;
         this.name = name;
+        this.flag = false;
+    }
+
+    public int getVal() {
+        return val;
+    }
+
+    public void setVal(int val) {
+        this.val = val;
     }
 
     public int getId() {
@@ -75,7 +92,7 @@ public class TreeNode {
 
     @Override
     public String toString() {
-        return "[id:" + id + ",name:" + name + "]";
+        return this.flag?("[val:"+this.val+"]"):("[id:" + this.id + ",name:" + this.name + "]");
     }
 
 
@@ -124,7 +141,6 @@ public class TreeNode {
 
     /**
      * 前序查找
-     *
      * @param val
      * @return
      */
@@ -235,6 +251,11 @@ public class TreeNode {
         return false;
     }
 
+    /**
+     * 删除
+     * 先左再右
+     * @return
+     */
     public boolean postDelChildRoot(int no){
 
         if (this.right!=null){
@@ -264,5 +285,9 @@ public class TreeNode {
     }
 
 
-
+    @Override
+    public int compareTo(TreeNode o) {
+        //this.val - o.val 从小到大排序
+        return this.val - o.val;
+    }
 }
