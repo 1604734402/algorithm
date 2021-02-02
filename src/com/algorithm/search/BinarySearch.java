@@ -79,6 +79,7 @@ public class BinarySearch {
 
     /**
      * 递归批量
+     * 用于多个重复
      * @param arr
      * @param val
      * @param left
