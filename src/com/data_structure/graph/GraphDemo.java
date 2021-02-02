@@ -25,6 +25,8 @@ public class GraphDemo {
         //显示矩阵
         graph.showGraph();
 
-        graph.dfs();
+//        graph.dfs();
+
+        graph.bsf();
     }
 }
