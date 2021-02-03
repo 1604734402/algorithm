@@ -152,6 +152,7 @@ public class Graph {
 
     /**
      * 对dfs进行重载，遍历所有的节点，进行dfs
+     * 这里体现了回溯
      */
     public void dfs() {
         for (int i = 0; i < getNumOfVertex(); i++) {

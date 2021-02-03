@@ -65,6 +65,13 @@ public class KnapsackProblem {
             i--;
         }
 
+        for (int k = 0; k < path.length; k++) {
+            for (int l = 0; l < path[k].length; l++) {
+                System.out.printf("%d  ",path[k][l]);
+            }
+            System.out.println();
+        }
+
     }
 
 
