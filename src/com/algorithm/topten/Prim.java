@@ -42,8 +42,8 @@ public class Prim {
 class MinTree {
 
     /**
+     * 初始化图
      * 创建图的邻接矩阵
-     *
      * @param graph  图对象
      * @param verxs  图对应的顶点个数
      * @param data   图的各个顶点的值
