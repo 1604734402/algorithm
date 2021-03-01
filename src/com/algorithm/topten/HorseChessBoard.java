@@ -58,10 +58,11 @@ public class HorseChessBoard {
             Point p = ps.remove(0);//取出下一个可以走的位置
             //判断该点是否已经访问过
             if (!visited[p.y * X + p.x]) {//说明未访问
+                //如果遇到未访问的点，进行递归访问
                 traversalChessboard(chessboard, p.y, p.x, step + 1);
             }
         }
-        //
+        // step 计算走过几步，
         if (step < X * Y && !finished) {//未完成
             chessboard[row][column] = 0;
             visited[row * X + column] = false;
@@ -113,7 +114,8 @@ public class HorseChessBoard {
     }
 
     /**
-     *
+     * 贪心算法
+     * 对点进行排序，通过这个点需要走几步来判断
      * @param ps
      */
     public static void sort(ArrayList<Point> ps){
@@ -123,7 +125,6 @@ public class HorseChessBoard {
                 //获取o1下一步的所有位置个数
                 int n1 = next(o1).size();
                 int n2 = next(o2).size();
-
                 return n1-n2;
             }
         });
