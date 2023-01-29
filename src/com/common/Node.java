@@ -2,8 +2,8 @@ package com.common;
 
 public class Node {
 
-    private Integer no;
-    private Node next;
+    public Integer no;
+    public Node next;
 
     public Node() {
     }
@@ -26,5 +26,13 @@ public class Node {
 
     public void setNext(Node next) {
         this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "no=" + no +
+                ", next=" + next +
+                '}';
     }
 }

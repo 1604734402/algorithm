@@ -65,5 +65,18 @@ public class Util {
         arr[index2] = temp;
     }
 
+    public static void printNode(Node node){
+        Node temp = node;
+        while (temp!=null){
+            System.out.println(temp.no);
+
+            if (temp.next==null){
+                break;
+            }
+            temp = temp.next;
+
+        }
+    }
+
 
 }

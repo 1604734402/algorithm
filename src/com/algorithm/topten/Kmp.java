@@ -22,8 +22,8 @@ public class Kmp {
         // 2[AAA] A AA | AA A
         // 0[AAAB] A AA AAA | AAB AB B
         // 2[AABAA] A AA AAB AABA | A AA BAA ABAA
-        System.out.println(Arrays.toString(kmpNext("AAABA")));
-//        System.out.println(violentMatch(str1, str2));
+//        System.out.println(Arrays.toString(kmpNext("AAABA")));
+        System.out.println(kmp(str1, str2,kmpNext(str2)));
     }
 
     /**
